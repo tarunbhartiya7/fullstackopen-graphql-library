@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client'
 import { ALL_BOOKS } from '../queries'
 
 const Books = ({ show, filter }) => {
-  const result = useQuery(ALL_BOOKS)
+  const result = useQuery(ALL_BOOKS, { variables: { genre: filter } })
   const [books, setBooks] = useState([])
   const [data, setData] = useState([])
 
@@ -15,14 +15,14 @@ const Books = ({ show, filter }) => {
     }
   }, [result])
 
-  useEffect(() => {
-    if (filter) {
-      const filteredBooks = data.filter((book) =>
-        book.genres.includes(filter.toLowerCase())
-      )
-      setBooks(filteredBooks)
-    }
-  }, [filter, data])
+  // useEffect(() => {
+  //   if (filter) {
+  //     const filteredBooks = data.filter((book) =>
+  //       book.genres.includes(filter.toLowerCase())
+  //     )
+  //     setBooks(filteredBooks)
+  //   }
+  // }, [filter, data])
 
   if (result.loading) {
     return <div>loading...</div>
