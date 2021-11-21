@@ -42,15 +42,15 @@ const App = () => {
         )}
       </div>
 
-      <Authors show={page === 'authors'} token={token} />
+      {page === 'authors' && <Authors token={token} />}
 
-      <Books show={page === 'books'} />
+      {page === 'books' && <Books />}
 
-      <LoginForm setToken={setToken} show={page === 'login'} />
+      {page === 'login' && <LoginForm setToken={setToken} />}
 
-      <NewBook show={page === 'add'} />
+      {page === 'add' && <NewBook />}
 
-      <Favourite show={page === 'recommend'} />
+      {page === 'recommend' && <Favourite />}
     </div>
   )
 }

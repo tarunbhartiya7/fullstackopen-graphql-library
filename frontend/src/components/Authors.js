@@ -4,7 +4,7 @@ import Select from 'react-select'
 
 import { ALL_AUTHORS, EDIT_AUTHOR } from '../queries'
 
-const Authors = ({ show, token }) => {
+const Authors = ({ token }) => {
   const result = useQuery(ALL_AUTHORS)
   const [born, setBorn] = useState('')
   const [selectedOption, setSelectedOption] = useState(null)
@@ -26,10 +26,6 @@ const Authors = ({ show, token }) => {
 
   if (result.loading) {
     return <div>loading...</div>
-  }
-
-  if (!show) {
-    return null
   }
 
   const submit = (event) => {

@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client'
 import { ME } from '../queries'
 import Books from './Books'
 
-const Favourite = (props) => {
+const Favourite = () => {
   const result = useQuery(ME)
   const [userData, setUserData] = useState([])
 
@@ -13,10 +13,6 @@ const Favourite = (props) => {
       setUserData(result.data.me)
     }
   }, [result])
-
-  if (!props.show) {
-    return null
-  }
 
   if (result.loading) {
     return <div>loading...</div>

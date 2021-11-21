@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client'
 
 import { ALL_BOOKS } from '../queries'
 
-const Books = ({ show, filter }) => {
+const Books = ({ filter }) => {
   const result = useQuery(ALL_BOOKS, { variables: { genre: filter } })
   const [books, setBooks] = useState([])
   const [data, setData] = useState([])
@@ -26,10 +26,6 @@ const Books = ({ show, filter }) => {
 
   if (result.loading) {
     return <div>loading...</div>
-  }
-
-  if (!show) {
-    return null
   }
 
   const filterBooks = (filterString) => {
