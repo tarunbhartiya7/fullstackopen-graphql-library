@@ -12,4 +12,11 @@ const schema = new mongoose.Schema({
   },
 })
 
+// virtual populate books since we don't want to store this array of books in db
+// schema.virtual('books', {
+//   ref: 'Book',
+//   foreignField: 'author',
+//   localField: '_id',
+// })
+
 module.exports = mongoose.model('Author', schema)

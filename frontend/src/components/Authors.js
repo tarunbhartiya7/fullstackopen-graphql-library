@@ -18,7 +18,7 @@ const Authors = ({ token }) => {
       }))
       setOptions(temp)
     }
-  }, [result])
+  }, [result.data])
 
   const [updateAuthor] = useMutation(EDIT_AUTHOR, {
     refetchQueries: [{ query: ALL_AUTHORS }],
